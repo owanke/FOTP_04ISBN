@@ -20,7 +20,7 @@ class IsbnTest
     {
         Isbn isbn = new Isbn();
 
-//        assertEquals("3-446-45118-8", isbn.generateIsbn10("3-446-45118"));
+        assertEquals("3-446-45118-8", isbn.generateIsbn10("3-446-45118"));
         assertEquals("052135741-1", isbn.generateIsbn10("052135741"));
     }
     
@@ -28,7 +28,7 @@ class IsbnTest
     void testISBN13()
     {
         Isbn isbn = new Isbn();
-        assertEquals("X", isbn.generateIsbn13("000000000000"));
+        assertEquals("978316148410-0", isbn.generateIsbn13("978-3-16-148410"));
     }
 
 }
