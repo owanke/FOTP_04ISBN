@@ -1,5 +1,6 @@
 package oop.isbn;
 
+
 public class Isbn
 {
 
@@ -16,6 +17,13 @@ public class Isbn
 
         System.out.println("input: " + input);
         System.out.println("prefix: " + prefix);
+        
+     // check for invalid characters
+        if (input.matches("[a-zA-Z]+"))
+        {
+            throw new IllegalArgumentException();
+        }
+        
         // check for length
         if (prefix.length() != 9)
         {
@@ -46,12 +54,18 @@ public class Isbn
         return input + "-" + suffix;
     }
 
-    public static String generateIsbn13(String prefix)
+    public static String generateIsbn13(String input)
     {
 
         // remove bindestrich
-        prefix = prefix.replaceAll("\\D+", "");
+        String prefix = input.replaceAll("\\D+", "");
 
+        
+        // check for invalid characters
+        if (input.matches("[a-zA-Z]+"))
+        {
+            throw new IllegalArgumentException();
+        }
         // check for length
         if (prefix.length() != 12)
         {
@@ -76,7 +90,7 @@ public class Isbn
         int pruefziffer = (10 - summe % 10) % 10;
         String suffix = Integer.toString(pruefziffer);
 
-        return prefix + "-" + suffix;
+        return input + "-" + suffix;
     }
 
 }
