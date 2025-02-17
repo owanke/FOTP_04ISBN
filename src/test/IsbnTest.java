@@ -22,7 +22,7 @@ class IsbnTest
 
         assertEquals("3-446-45118-8", isbn.generateIsbn10("3-446-45118"));
         assertEquals("052135741-1", isbn.generateIsbn10("052135741"));
-        assertEquals("843144v601", isbn.generateIsbn10("843144v601"));
+        assertEquals("3361120w40", isbn.generateIsbn10("3361120w40"));
     }
     
     @Test

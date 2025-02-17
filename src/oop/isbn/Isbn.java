@@ -1,6 +1,5 @@
 package oop.isbn;
 
-
 public class Isbn
 {
 
@@ -17,13 +16,13 @@ public class Isbn
 
         System.out.println("input: " + input);
         System.out.println("prefix: " + prefix);
-        
-     // check for invalid characters
-        if (input.matches("[a-zA-Z]+"))
+
+        // check for alphanumerical characters
+        if (containsAlphanumericalCharacters(input))
         {
             throw new IllegalArgumentException();
         }
-        
+
         // check for length
         if (prefix.length() != 9)
         {
@@ -60,9 +59,8 @@ public class Isbn
         // remove bindestrich
         String prefix = input.replaceAll("\\D+", "");
 
-        
         // check for invalid characters
-        if (input.matches("[a-zA-Z]+"))
+        if (containsAlphanumericalCharacters(input))
         {
             throw new IllegalArgumentException();
         }
@@ -91,6 +89,18 @@ public class Isbn
         String suffix = Integer.toString(pruefziffer);
 
         return input + "-" + suffix;
+    }
+
+    private static boolean containsAlphanumericalCharacters(String str)
+    {
+        for (char c : str.toCharArray())
+        {
+            if (Character.isLetter(c))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
